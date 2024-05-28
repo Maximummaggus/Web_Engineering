@@ -154,7 +154,9 @@ body {
 }
 
 /* Thumbnail */
-.thumbnail {
+
+/* Thumbnail Container */
+.thumbnail-container {
     position: absolute;
     bottom: 50px;
     left: 50%;
@@ -163,6 +165,12 @@ body {
     display: flex;
     gap: 20px;
     transform: translateX(-50%);
+    align-items: center;
+}
+
+.thumbnail {
+    display: flex;
+    gap: 20px;
 }
 
 .thumbnail .item {
@@ -188,18 +196,18 @@ body {
 }
 
 .thumbnail .item .content .title {
-    font-weight: 600;
+    font-weight: 500;
 }
 
-.thumbnail .item .content .description {
+/* .thumbnail .item .content .description {
     font-weight: 300;
-}
+} */
 
 /* Arrows */
 .arrows {
     position: absolute;
     z-index: 100;
-    bottom: 12%;
+    bottom: 35%;
     /* Anpassen, um die Pfeile vertikal zu positionieren */
     left: 50%;
     width: 100%;
@@ -208,6 +216,7 @@ body {
     justify-content: space-between;
     /* Verteilt die Pfeile gleichmäßig */
     transform: translateX(-50%);
+    pointer-events: none;
 }
 
 .arrows button {
@@ -220,6 +229,9 @@ body {
     font-family: monospace;
     font-weight: bold;
     transition: .5s;
+    pointer-events: all;
+    margin-left: -20px;
+    margin-right: -20px;
 }
 
 .arrows button:hover {
@@ -293,7 +305,7 @@ body {
     }
 }
 
-.carousel.next .thumbnail .item:nth-last-child(1) {
+.carousel.next .thumbnail-container .thumbnail .item:nth-last-child(1) {
     overflow: hidden;
     animation: showThumbnail .5s linear 1 forwards;
 }
@@ -310,18 +322,8 @@ body {
 
     to {
         width: 100px;
-        /* Stelle sicher, dass die Breite korrekt ist */
+
         opacity: 1;
-    }
-}
-
-.carousel.next .thumbnail {
-    animation: effectNext .5s linear 1 forwards;
-}
-
-@keyframes effectNext {
-    from {
-        transform: translateX(150px);
     }
 }
 
