@@ -1,3 +1,6 @@
+const NEXT = 1;
+const PREV = -1;
+
 class Carousel {
     constructor(carouselSelector, timeRunning = 700, timeAutoNext = 6000) {
         this.carouselDom = document.querySelector(carouselSelector);
@@ -16,8 +19,8 @@ class Carousel {
         this.thumbnailItemsDom = this.thumbnailBorderDom.querySelectorAll('.item');
         this.thumbnailBorderDom.appendChild(this.thumbnailItemsDom[0]);
 
-        this.nextDom.onclick = () => this.showSlider('next');
-        this.prevDom.onclick = () => this.showSlider('prev');
+        this.nextDom.onclick = () => this.showSlider(NEXT);
+        this.prevDom.onclick = () => this.showSlider(PREV);
 
         this.runNextAuto = setTimeout(() => {
             this.nextDom.click();
@@ -26,17 +29,17 @@ class Carousel {
         this.resetTimeBar();
     }
 
-    showSlider(type) {
+    showSlider(direction) {
         this.disableButtons();
 
         const sliderItemsDom = this.sliderDom.querySelectorAll('.item');
         const thumbnailItemsDom = this.thumbnailBorderDom.querySelectorAll('.item');
 
-        if (type === 'next') {
+        if (direction === NEXT) {
             this.sliderDom.appendChild(sliderItemsDom[0]);
             this.thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
             this.carouselDom.classList.add('next');
-        } else {
+        } else if (direction === PREV) {
             this.sliderDom.prepend(sliderItemsDom[sliderItemsDom.length - 1]);
             this.thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
             this.carouselDom.classList.add('prev');
