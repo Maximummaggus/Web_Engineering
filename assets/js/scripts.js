@@ -22,9 +22,7 @@ class Carousel {
         this.nextDom.onclick = () => this.showSlider(NEXT);
         this.prevDom.onclick = () => this.showSlider(PREV);
 
-        this.runNextAuto = setTimeout(() => {
-            this.nextDom.click();
-        }, this.timeAutoNext);
+        this.startAutoSlide();
 
         this.resetTimeBar();
     }
@@ -36,28 +34,45 @@ class Carousel {
         const thumbnailItemsDom = this.thumbnailBorderDom.querySelectorAll('.item');
 
         if (direction === NEXT) {
-            this.sliderDom.appendChild(sliderItemsDom[0]);
-            this.thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+            this.moveSliderItemToEnd(sliderItemsDom);
+            this.moveThumbnailItemToEnd(thumbnailItemsDom);
             this.carouselDom.classList.add('next');
         } else if (direction === PREV) {
-            this.sliderDom.prepend(sliderItemsDom[sliderItemsDom.length - 1]);
-            this.thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+            this.moveSliderItemToStart(sliderItemsDom);
+            this.moveThumbnailItemToStart(thumbnailItemsDom);
             this.carouselDom.classList.add('prev');
         }
 
         clearTimeout(this.runTimeout);
         this.runTimeout = setTimeout(() => {
-            this.carouselDom.classList.remove('next');
-            this.carouselDom.classList.remove('prev');
+            this.clearSliderClasses();
             this.enableButtons();
         }, this.timeRunning);
 
-        clearTimeout(this.runNextAuto);
-        this.runNextAuto = setTimeout(() => {
-            this.nextDom.click();
-        }, this.timeAutoNext);
+        this.resetAutoSlide();
 
         this.resetTimeBar();
+    }
+
+    moveSliderItemToEnd(items) {
+        this.sliderDom.appendChild(items[0]);
+    }
+
+    moveSliderItemToStart(items) {
+        this.sliderDom.prepend(items[items.length - 1]);
+    }
+
+    moveThumbnailItemToEnd(items) {
+        this.thumbnailBorderDom.appendChild(items[0]);
+    }
+
+    moveThumbnailItemToStart(items) {
+        this.thumbnailBorderDom.prepend(items[items.length - 1]);
+    }
+
+    clearSliderClasses() {
+        this.carouselDom.classList.remove('next');
+        this.carouselDom.classList.remove('prev');
     }
 
     disableButtons() {
@@ -74,6 +89,17 @@ class Carousel {
         this.timeDom.style.animation = 'none';
         this.timeDom.offsetHeight; // Trigger reflow to restart the animation
         this.timeDom.style.animation = `runningTime ${this.timeAutoNext / 1000}s linear 1 forwards`;
+    }
+
+    startAutoSlide() {
+        this.runNextAuto = setTimeout(() => {
+            this.nextDom.click();
+        }, this.timeAutoNext);
+    }
+
+    resetAutoSlide() {
+        clearTimeout(this.runNextAuto);
+        this.startAutoSlide();
     }
 }
 
