@@ -1,35 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Wix+Madefor+Display:wght@400..800&display=swap');
+
 :root {
+    --primary-color: #ffffff;
     --secondary-color: rgba(32, 31, 31, 0.5);
-    --background-color: url('../images/background.jpg') no-repeat center center fixed;
-    --font-family: Arial, sans-serif;
     --base-font-size: 1rem;
     --header-height: 11vh;
     --animation-duration: 0.7s;
     --animation-timing: linear;
     --thumbnail-width: 100px;
     --thumbnail-height: 150px;
+    --content-font: 'Wix Madefor Display', sans-serif;
+    --title-font: 'Major Mono Display', monospace;
 }
 
 body {
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-size: var(--base-font-size);
     background: var(--background-color);
-    background-size: cover;
+    position: relative;
+    font-family: var(--content-font);
 }
 
-/* Header Styles */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../images/background.jpg) no-repeat center center/cover;
+    z-index: -1;
+}
+
 .header {
     position: sticky;
     top: 0;
     height: var(--header-height);
-    color: white;
+    color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0));
     z-index: 10;
 }
+
+
 
 .overlay {
     position: absolute;
@@ -55,6 +72,7 @@ body {
 .logo h1 {
     margin: 0;
     font-size: calc(0.5rem + 1.5vw);
+    font-family: var(--title-font);
 }
 
 .nav-links {
@@ -98,12 +116,15 @@ body {
     margin-top: 2rem;
 }
 
-
+main {
+    margin-top: 80px;
+    /* Fix für den Abstand zum Header. */
+}
 
 /* Carousel */
 .carousel {
-    width: 90%;
-    height: 90vh;
+    width: 95%;
+    height: 95vh;
     margin: 5% auto;
     overflow: hidden;
     position: relative;
@@ -176,16 +197,15 @@ body {
     bottom: 50px;
     left: 50%;
     width: max-content;
-    z-index: 100;
+    z-index: 5;
     display: flex;
-    gap: 20px;
     transform: translateX(-50%);
     align-items: center;
 }
 
 .thumbnail {
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 .thumbnail .item {
