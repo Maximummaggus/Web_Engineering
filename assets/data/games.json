@@ -1,0 +1,76 @@
+{
+    "games": [
+        {
+            "title": "The Division 2",
+            "description": "The Division 2 is an online action role-playing video game developed by Massive Entertainment and published by Ubisoft.",
+            "image": "assets/images/division.jpg",
+            "page": "division.html",
+            "details": "The Division 2 is set in a near-future Washington, D.C. in the aftermath of a smallpox pandemic. The player, a member of the Strategic Homeland Division, is tasked with rebuilding the city.",
+            "trailer": "https://www.youtube.com/embed/sli7AbX2bEk",
+            "requirements": {
+                "minimum": {
+                    "Operating System": "Windows 10",
+                    "Processor": "Intel Core i5-2500K",
+                    "Memory": "8 GB RAM",
+                    "Graphics": "NVIDIA GTX 670",
+                    "Storage": "40 GB available space"
+                },
+                "recommended": {
+                    "Operating System": "Windows 10",
+                    "Processor": "Intel Core i7-6700K",
+                    "Memory": "16 GB RAM",
+                    "Graphics": "NVIDIA GTX 1070",
+                    "Storage": "60 GB available space"
+                }
+            }
+        },
+        {
+            "title": "Total War: Warhammer 3",
+            "description": "Total War: Warhammer 3 is a turn-based strategy and real-time tactics video game developed by Creative Assembly and published by Sega.",
+            "image": "assets/images/twwh3.jpg",
+            "page": "warhammer.html",
+            "details": "Total War: Warhammer 3 takes place in Games Workshop's Warhammer Fantasy universe and is the third title in the Total War: Warhammer series. The game focuses on the battle between the mortal civilizations and the Chaos Gods.",
+            "trailer": "https://www.youtube.com/embed/6KaMt91ELHU",
+            "requirements": {
+                "minimum": {
+                    "Operating System": "Windows 10",
+                    "Processor": "Intel Core i3-2100",
+                    "Memory": "6 GB RAM",
+                    "Graphics": "NVIDIA GTX 750 Ti",
+                    "Storage": "60 GB available space"
+                },
+                "recommended": {
+                    "Operating System": "Windows 10",
+                    "Processor": "Intel Core i7-8700K",
+                    "Memory": "8 GB RAM",
+                    "Graphics": "NVIDIA GTX 1070",
+                    "Storage": "80 GB available space"
+                }
+            }
+        },
+        {
+            "title": "Grand Theft Auto 6",
+            "description": "Grand Theft Auto 6 is an upcoming action-adventure game developed by Rockstar Games. It is expected to be one of the most anticipated games of the decade.",
+            "image": "assets/images/gta6.jpg",
+            "page": "gta6.html",
+            "details": "Grand Theft Auto 6 is rumored to be set in Vice City and will feature an expansive open world with dynamic weather, real-time events, and more. Players can expect a gripping storyline and innovative gameplay mechanics.",
+            "trailer": "https://www.youtube.com/embed/eOrb93UZfPU",
+            "requirements": {
+                "minimum": {
+                    "Operating System": "Windows 10",
+                    "Processor": "Intel Core i5-4460",
+                    "Memory": "8 GB RAM",
+                    "Graphics": "NVIDIA GTX 760",
+                    "Storage": "70 GB available space"
+                },
+                "recommended": {
+                    "Operating System": "Windows 10",
+                    "Processor": "Intel Core i7-8700K",
+                    "Memory": "16 GB RAM",
+                    "Graphics": "NVIDIA GTX 1080",
+                    "Storage": "100 GB available space"
+                }
+            }
+        }
+    ]
+}

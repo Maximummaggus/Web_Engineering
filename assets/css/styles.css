@@ -3,25 +3,25 @@
 :root {
     --primary-color: #ffffff;
     --secondary-color: rgba(32, 31, 31, 0.5);
-    --base-font-size: 1rem;
+    --base-font-size: 1.1rem;
     --header-height: 11vh;
     --animation-duration: 0.7s;
     --animation-timing: linear;
-    --thumbnail-width: 100px;
+    --thumbnail-width: 115px;
     --thumbnail-height: 150px;
     --content-font: 'Wix Madefor Display', sans-serif;
     --title-font: 'Major Mono Display', monospace;
+    --background-color: #000;
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--content-font);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-size: var(--base-font-size);
     background: var(--background-color);
     position: relative;
-    font-family: var(--content-font);
 }
 
 .background {
@@ -34,6 +34,19 @@ body {
     z-index: -1;
 }
 
+.warhammer-page .background {
+    background: url(../images/twwh3.jpg) no-repeat center center/cover;
+}
+
+.division-page .background {
+    background: url(../images/division.jpg) no-repeat center center/cover;
+}
+
+.gta6-page .background {
+    background: url(../images/gta6.jpg) no-repeat center center/cover;
+}
+
+/* Header Styles */
 .header {
     position: sticky;
     top: 0;
@@ -45,8 +58,6 @@ body {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0));
     z-index: 10;
 }
-
-
 
 .overlay {
     position: absolute;
@@ -75,6 +86,12 @@ body {
     font-family: var(--title-font);
 }
 
+.logo h1 a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Navigation Styles */
 .nav-links {
     list-style: none;
     display: flex;
@@ -92,18 +109,13 @@ body {
     font-size: inherit;
 }
 
-/* Hero Section */
-.hero {
-    text-align: center;
-    color: white;
-    padding: 5rem 2rem;
-    position: relative;
-    z-index: 1;
-
+.nav-links a:hover {
+    text-decoration: underline;
 }
 
-.hero h2 {
-    font-size: calc(var(--base-font-size) * 1.5);
+/* Button Styles */
+button {
+    cursor: pointer;
 }
 
 .read-more {
@@ -112,16 +124,71 @@ body {
     border: calc(var(--base-font-size) * 0.1) solid white;
     padding: 0.5rem 1rem;
     font-size: var(--base-font-size);
-    cursor: pointer;
     margin-top: 2rem;
+}
+
+/* Game Detail Styles */
+.game-detail {
+    color: var(--primary-color);
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    max-width: 80%;
+    margin: 2rem auto;
+}
+
+.game-detail h2 {
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+.game-detail p {
+    font-size: 1.2em;
+}
+
+/* Table Styles */
+.game-detail table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.game-detail th,
+.game-detail td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.game-detail th {
+    background-color: #333;
+    color: white;
+    text-align: left;
+}
+
+.game-detail tr:nth-child(even) {
+    background-color: #444;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
 }
 
 main {
     margin-top: 80px;
-    /* Fix für den Abstand zum Header. */
 }
 
-/* Carousel */
+/* Carousel Styles */
+.hidden,
+.initializing {
+    display: none;
+}
+
 .carousel {
     width: 95%;
     height: 95vh;
@@ -134,7 +201,25 @@ main {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 10);
     border-radius: 20px;
     z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 0s linear 1s;
+    /* Increased duration for visibility */
 }
+
+.carousel.loaded {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease;
+    /* Reset transition for opacity */
+}
+
+.carousel.loaded {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 3s ease;
+}
+
 
 .carousel .list .item {
     width: 100%;
@@ -183,15 +268,12 @@ main {
     letter-spacing: 3px;
     font-family: Poppins;
     font-weight: 500;
-}
-
-.carousel .list .item .buttons button {
     background-color: transparent;
     border: 1px solid white;
     color: #eee;
 }
 
-/* Thumbnail */
+/* Thumbnail Styles */
 .thumbnail-container {
     position: absolute;
     bottom: 50px;
@@ -234,7 +316,7 @@ main {
     font-weight: 500;
 }
 
-/* Arrows */
+/* Arrow Button Styles */
 .arrows {
     position: absolute;
     z-index: 100;
@@ -267,7 +349,6 @@ main {
     color: #000;
 }
 
-/* Animation */
 .carousel .list .item:nth-child(1) {
     z-index: 1;
 }
@@ -305,7 +386,6 @@ main {
     animation-delay: 1.8s !important;
 }
 
-/* Create animation when next click */
 .carousel.next .list .item:nth-child(1) img {
     position: absolute;
     width: 0;
@@ -351,7 +431,6 @@ main {
     }
 }
 
-/* Running time */
 .carousel .time {
     position: absolute;
     z-index: 1000;
@@ -373,7 +452,6 @@ main {
     }
 }
 
-/* Prev click */
 .carousel.prev .list .item:nth-child(2) {
     z-index: 2;
 }
@@ -421,104 +499,116 @@ main {
     }
 }
 
-/* Responsive Design */
-/* Full HD */
-/* @media screen and (min-width: 1920px) {
-    :root {
-        --base-font-size: 1vw;
-        --header-font-size: 2vw;
-        --nav-font-size: 1vw;
-    }
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
-    .hero h2 {
-        font-size: calc(var(--base-font-size) * 1.5);
-    }
+.modal-content {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .read-more {
-        border: calc(var(--base-font-size) * 0.1) solid var(--primary-color);
-    }
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-    .arrows {
-        top: 69%;
-        right: 34.5%;
-        width: 50%;
-        gap: 5%;
-    }
-} */
+.close:hover,
+.close:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
 
-/* iPad 12 Pro */
-/* @media screen and (min-width: 768px) and (max-width: 1366px) {
-    :root {
-        --base-font-size: 1.5vw;
-        --header-font-size: 2.5vw;
-        --nav-font-size: 1.5vw;
-    }
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
 
-    .hero h2 {
-        font-size: calc(var(--base-font-size) * 1.5);
-    }
+.modal form label {
+    margin-top: 10px;
+}
 
-    .read-more {
-        border: calc(var(--base-font-size) * 0.1) solid var(--primary-color);
-    }
+.modal form input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-    .arrows {
-        top: 75%;
-        right: 35%;
-        width: 20%;
-        gap: 10%;
-    }
-} */
+.modal form button {
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-/* iPhone 15 Pro */
-/* @media screen and (max-width: 394px) {
-    :root {
-        --base-font-size: 2.5vw;
-        --header-font-size: 3vw;
-        --nav-font-size: 2vw;
-    }
+.modal form button:hover {
+    background-color: #45a049;
+}
 
-    .hero h2 {
-        font-size: calc(var(--base-font-size) * 1.5);
-    }
+iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    max-height: 315px;
+    display: block;
+    margin: 0 auto;
+}
 
-    .read-more {
-        border: calc(var(--base-font-size) * 0.1) solid var(--primary-color);
+@media screen and (min-width: 1920px) {
+    iframe {
+        max-width: 800px;
+        max-height: 450px;
     }
+}
 
-    .thumbnail .item {
-        width: 80px;
-        max-width: 80px;
+@media screen and (min-width: 768px) and (max-width: 1366px) {
+    iframe {
+        max-width: 640px;
+        max-height: 360px;
     }
+}
 
-    .arrows {
-        top: 60%;
-        right: 25%;
-        width: 20%;
-        gap: 10%;
+@media screen and (max-width: 394px) {
+    iframe {
+        max-width: 320px;
+        max-height: 180px;
     }
-} */
+}
 
-/* Galaxy S22 Ultra */
-/* @media screen and (max-width: 385px) and (max-height: 825px) {
-    :root {
-        --base-font-size: 2.5vw;
-        --header-font-size: 3vw;
-        --nav-font-size: 2vw;
+@media screen and (max-width: 385px) and (max-height: 825px) {
+    iframe {
+        max-width: 360px;
+        max-height: 202px;
     }
+}
 
-    .hero h2 {
-        font-size: calc(var(--base-font-size) * 1.5);
+@media screen and (max-width: 860px) and (orientation: landscape) {
+    .carousel .list .item .content {
+        padding: 1rem;
+        text-align: left;
     }
-
-    .read-more {
-        border: calc(var(--base-font-size) * 0.1) solid var(--primary-color);
-    }
-
-    .arrows {
-        top: 60%;
-        right: 25%;
-        width: 20%;
-        gap: 10%;
-    }
-} */
+}

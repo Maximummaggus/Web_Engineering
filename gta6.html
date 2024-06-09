@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Theft Auto 6</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="gta6-page">
+    <div class="background"></div>
+    <header class="header">
+        <div class="overlay">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="index.html">Marcus Games</a></h1>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#" id="open-login">Sign In</a></li>
+                        <li><a href="#" id="open-register">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="game-detail">
+            <h2></h2>
+            <p></p>
+            <div class="table-container"></div>
+        </section>
+    </main>
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <span class="close" id="close-register">&times;</span>
+            <form>
+                <h2>Register</h2>
+                <label for="reg-username">Username:</label>
+                <input type="text" id="reg-username" name="username" required>
+                <label for="reg-email">Email:</label>
+                <input type="email" id="reg-email" name="email" required>
+                <label for="reg-password">Password:</label>
+                <input type="password" id="reg-password" name="password" required>
+                <label for="reg-confirm-password">Confirm Password:</label>
+                <input type="password" id="reg-confirm-password" name="confirm-password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close" id="close-login">&times;</span>
+            <form>
+                <h2>Sign In</h2>
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" name="email" required>
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Game News</p>
+    </footer>
+
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>
